@@ -2,7 +2,7 @@ Package.describe({
   name: 'jcheroske:responsive-media-queries',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'Reactive media queries',
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/jcheroske/meteor-responsive-media-queries.git',
   // By default, Meteor will default to using README.md for documentation.

@@ -28,8 +28,8 @@ const onResizeEvent = (e) => {
 const matchMedia = (...mediaQueries) => {
   resizeDep.depend();
   const queryStr = screen + mediaQueries.join(' and ');
-  console.log(queryStr);
-  return window.matchMedia(queryStr).matches;
+  const result = window.matchMedia(queryStr).matches;
+  return result;
 };
 
 window.addEventListener('resize', _.throttle(onResizeEvent, 100));
