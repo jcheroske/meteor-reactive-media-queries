@@ -1,4 +1,3 @@
-import {ReactiveVar} from 'meteor/reactive-var'
 import {Tracker} from 'meteor/tracker'
 
 const XS = 480;
@@ -17,8 +16,8 @@ const ranges = {
 const screen = 'only screen and ';
 const landscape = '(orientation: landscape)';
 const portrait = '(orientation: portrait)';
-const min = (range) => `(min-width: ${ranges[range].min})`;
-const max = (range) => `(max-width: ${ranges[range].max})`;
+const min = (range) => `(min-width: ${ranges[range].min}px)`;
+const max = (range) => `(max-width: ${ranges[range].max}px)`;
 
 const resizeDep = new Tracker.Dependency;
 
@@ -39,17 +38,17 @@ export default {
   isLandscape: () => matchMedia(landscape),
   isPortrait: () => matchMedia(portrait),
 
-  isPortraitPhone: () => matchMedia(portrait, max(XXS)),
-  isPortraitTablet: () => matchMedia(portrait, min(XS), max(XS)),
-  isPortraitDesktop: () => matchMedia(portrait, min(SM), max(SM)),
-  isPortraitLarge: () => matchMedia(portrait, min(MD), max(MD)),
-  isLandscapePhone: () => matchMedia(landscape, max(XS)),
-  isLandscapeTablet: () => matchMedia(landscape, min(SM), max(SM)),
-  isLandscapeDesktop: () => matchMedia(landscape, min(MD), max(MD)),
-  isLandscapeLarge: () => matchMedia(landscape, min(LG)),
+  isPortraitPhone: () => matchMedia(portrait, max('xxs')),
+  isPortraitTablet: () => matchMedia(portrait, min('xs'), max('xs')),
+  isPortraitDesktop: () => matchMedia(portrait, min('sm'), max('sm')),
+  isPortraitLarge: () => matchMedia(portrait, min('md'), max('md')),
+  isLandscapePhone: () => matchMedia(landscape, max('xs')),
+  isLandscapeTablet: () => matchMedia(landscape, min('sm'), max('sm')),
+  isLandscapeDesktop: () => matchMedia(landscape, min('md'), max('md')),
+  isLandscapeLarge: () => matchMedia(landscape, min('lg')),
 
-  isPortraitTabletAndUp: () => matchMedia(portrait, min(XS)),
-  isPortraitDesktopAndUp: () => matchMedia(portrait, min(SM)),
-  isLandscapeTabletAndUp: () => matchMedia(landscape, min(SM)),
-  isLandscapeDesktopAndUp: () => matchMedia(landscape, min(MD)),
+  isPortraitTabletAndUp: () => matchMedia(portrait, min('xs')),
+  isPortraitDesktopAndUp: () => matchMedia(portrait, min('sm')),
+  isLandscapeTabletAndUp: () => matchMedia(landscape, min('sm')),
+  isLandscapeDesktopAndUp: () => matchMedia(landscape, min('md')),
 }

@@ -12,7 +12,8 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.3.2.4');
-  api.use('ecmascript');
-  api.use('underscore');
-  api.mainModule('index.js');
+  api.use('tracker', 'client');
+  api.use('ecmascript', 'client');
+  api.use('underscore', 'client');
+  api.mainModule('index.js', 'client');
 });
